@@ -1,0 +1,60 @@
+@charset "utf-8";
+/*
+Template Name: Presentable
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+File: Layout CSS
+*/
+
+/* ----------------------------------------------General------------------------------------- */
+body, html {
+    font-family: orange_sans35_thin, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    background-color: #eee;
+
+}
+form {
+    /*margin-left: 500px;
+    width: 400px;*/
+    background-color: #fff;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+
+}
+h2 {
+    text-align: center;
+    /*margin-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 150px;
+    font-family: inherit;
+    font-weight: lighter;
+    line-height: 1.1;
+    font-size: 30px;*/
+}
+.btn-primary {
+    border: 1px solid #DB5705;
+    color: #fff;
+    background-color: #ff6900;
+}
+
+.btn{
+    overflow: hidden;
+    box-shadow: 5px 5px 10px #ddd;
+}
+P {
+    text-align: center;
+    font-style: italic;
+}
+#bienvenue {
+    text-align: left;
+    font-style: italic;
+    font-size: 1.5em;
+}
+
+.btn-primary:hover {
+    background-color: #cc5400;
+    border-color: #662a00;
+}
