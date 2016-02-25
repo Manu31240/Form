@@ -81,16 +81,33 @@
             </div>
         </form>
     </div>
+    <!--******************************body select tenant***************************-->
+    <div class="row">
+        <div class="col-lg-offset-3 col-xs-offset-1 col-lg-5 col-xs-9">
+            <p class="text-center" id="bienvenue"></p>
+        </div>
+    </div>
+    <div class="row">
+        <div id="tenant">
+        </div>
+    </div>
+    <div id="loader"></div>
+    <div id="content">
+        <script id="template" type="x-tmpl-mustache">
+  <p>Use the <strong>{{power}}</strong>, {{name}}!</p>
+</script>
+
+    </div>
+
 </div>
-<!--******************************body select tenant***************************-->
-<div id="bienvenue"></div>
-<div id="tenant"></div>
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../bootstrap/js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="mustache.js"></script>
+<script type="text/javascript" src="apps.js"></script>
 
 </body>
 </html>

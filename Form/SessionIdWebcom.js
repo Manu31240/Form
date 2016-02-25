@@ -1,7 +1,7 @@
 /**
  * Created by root on 2/16/16.
  */
-//Focntion globale : Verifie credential Cloudwatt - Si Ok poursuit le traitement
+//Fonction globale : Verifie credential Cloudwatt - Si Ok poursuit le traitement
 function check() {
     var formulaire = document.getElementById("utilisateur");
     if (validateEmail(formulaire.elements[0].value)) { //Format @ mail valide
@@ -44,14 +44,22 @@ function selectTenant(tokenId) {
     xhr_tenant.setRequestHeader("X-Auth-Token", tokenId);
     xhr_tenant.send();
     var tenantArr = JSON.parse(xhr_tenant.responseText).tenants// Parsing de la reponse
-    var myDiv = document.getElementById("tenant");
-    var para = document.createElement("SPAN");
-    var text = document.createTextNode("Select your tenant Id :");
+    var myDiv = document.getElementById('tenant'); //Position sur id-tenant dans Form
+    var form = document.createElement("form"); //creation d'un formulaire
+    form.className="form-horizontal";
+    var divGroup = document.createElement(div);
+    divGroup.className="form-group";
+    var para = document.createElement("label");
+    para.htmlFor="SelectTenant";
+    para.className="control-label";
+    var text = document.createTextNode("Select your tenant Id  ");
+    myDiv.appendChild(form);
+    form.appendChild(divGroup);
     para.appendChild(text);
-    myDiv.appendChild(para);
+    divGroup.appendChild(para);
     var selectList = document.createElement("select");
     selectList.id = "mySelect";
-    myDiv.appendChild(selectList);
+    form.appendChild(selectList);
     for (var i = 0; i < tenantArr.length; i++) {
         //displayForm("P","tenant id= "+tenantArr[i].id);
         //option +='<option value="'+(i+1)+'">'+tenantArr[i].id+'</option>';
