@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/layout.css" type="text/css"/>
     <script type='text/javascript' src='https://webcom.orange.com/js/latest/webcom.js'></script>
     <script language="JavaScript" src="scripts/SessionIdWebcom.js" type="text/javascript"></script>
+    <script src="scripts/components/requirejs/require.js" data-main="scripts/main"></script>
 </head>
 <body>
 <div class="container">
@@ -70,7 +71,7 @@
             <div class="row">
                 <div class="col-lg-12">&nbsp</div>
                 <div class="col-lg-12">
-                    <button id="btnSignIn" class="btn btn-block btn-primary col-lg-5 col-xs-9" type="submit" onclick="myfunction()">
+                    <button id="btnSignIn" class="btn btn-block btn-primary col-lg-5 col-xs-9" type="submit">
                         <span>sign in</span>
                     </button>
                 </div>
@@ -93,13 +94,18 @@
     </div>
     <div id="loader"></div>
     <div id="content">
-        <script id="template" type="x-tmpl-mustache">
-            <p>Use the <strong>{{power}}</strong>, {{name}}!</p>
-              <form id="utilisateur" method="post">
-               <label for="qui es-tu">coucou</label></br>
-                        <input type="email" id="login" name="login" placeholder="email address">
-                        </form>
-</script>
+        <!-- <script>require(['apps']);</script>
+            <script id="template" type="x-tmpl-mustache">
+                  <p>Use the <strong>{{power}}</strong>, {{name}}!</p>
+                    <form id="utilisateur" method="post">
+                     <label for="qui es-tu">coucou</label></br>
+                              <input type="email" id="login" name="login" placeholder="email address">
+                              </form>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+        </script>   -->
 
 
     </div>
@@ -112,10 +118,10 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="scripts/components/bootstrap/js/bootstrap.min.js"></script>
 <!-- data-main attribute tells require.js to load
-      scripts/main.js after require.js loads.
-<script data-main="scripts/main" src="scripts/components/requirejs/require.js"></script> -->
+      scripts/main.js after require.js loads.-->
+
 <script type="text/javascript" src="scripts/components/mustache/mustache.js"></script>
-<script type="text/javascript" src="scripts/apps.js"></script>
+<!--<script type="text/javascript" src="scripts/apps.js"></script>-->
 
 </body>
 </html>

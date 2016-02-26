@@ -1,6 +1,27 @@
 /**
  * Created by root on 2/25/16.
  */
+ require(['apps'], function(apps) {
+        mytest();
+
+});
+
+
+
+
+
+
+
+function mytest(){
+    console.log("function : mytest()");
+    alert("j'suis la");
+}
+
+/* require(['apps'],function(apps) {
+    apps.mytest();
+});
+
+
 function myfunction() {
     //Grab the inline template
     var template = document.getElementById('template').innerHTML;
@@ -14,3 +35,4 @@ function myfunction() {
     //Overwrite the contents of #target with the rendered HTML
     document.getElementById('content').innerHTML = rendered;
 }
+    */

@@ -1,7 +1,18 @@
 require.config({
-// config options
-});
+    baseUrl: 'scripts',
+    paths: {
+        'jquery': 'components/jquery/jquery'
+    },
+    shim:{
+        'apps':['SessionIdWebcom']
+    }
 
-//require(['jquery/jquery', 'common/ajaxLoader', 'common/someOtherModule'], function($, ajax, otherModule) {
-    // Modules that do stuff on every page are instantiated here 
+    // config options
 });
+//require(['jquery'],function() {});
+
+
+
+
+
+
