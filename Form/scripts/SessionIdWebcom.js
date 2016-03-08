@@ -16,7 +16,7 @@ function check() {
 
                 var response = JSON.parse(xhr_object.responseText); //Parsing de la reponse en format JSON
                 welcome(response.access.user.name); // Message de bienvenue
-                require(['apps'])
+                require(['apps2'])
                 selectTenant(response.access.token.id); //Selection du Tenant de l'utilisateur
             }
             else {

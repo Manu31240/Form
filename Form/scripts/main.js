@@ -4,7 +4,7 @@ require.config({
         'jquery': 'components/jquery/jquery'
     },
     shim:{
-        'apps':['SessionIdWebcom']
+        'apps2':['SessionIdWebcom']
     }
 
     // config options

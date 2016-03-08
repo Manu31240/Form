@@ -1,21 +1,29 @@
 /**
  * Created by root on 2/25/16.
  */
- require(['apps'], function(apps) {
-        mytest();
-
+ require(['apps2'], function(apps2) {
+       retest();
 });
-
-
-
-
-
-
 
 function mytest(){
     console.log("function : mytest()");
-    alert("j'suis la");
-}
+    alert("j'suis la et toi non plus");
+
+};
+
+function retest(){
+    alert("j'suis pas la");
+    var person = {
+        firstName: "Christophe",
+        lastName: "Coenraets",
+        blogURL: "http://coenraets.org"
+            };
+    var template = "<h1>{{firstName}} {{lastName}} </h1>Blog: {{blogURL}}";
+    var html = Mustache.render(template, person);
+    $('#content').html(html);
+    alert(html);
+
+};
 
 /* require(['apps'],function(apps) {
     apps.mytest();
