@@ -16,7 +16,7 @@ function check() {
 
                 var response = JSON.parse(xhr_object.responseText); //Parsing de la reponse en format JSON
                 welcome(response.access.user.name); // Message de bienvenue
-                require(['apps2'])
+                //require(['apps2']);
                 selectTenant(response.access.token.id); //Selection du Tenant de l'utilisateur
             }
             else {
@@ -48,11 +48,11 @@ function selectTenant(tokenId) {
     var myDiv = document.getElementById('tenant'); //Position sur id-tenant dans Form
     var form = document.createElement("form"); //creation d'un formulaire
     form.className="form-horizontal";
-    var divGroup = document.createElement(div);
+    var divGroup = document.createElement("div");
     divGroup.className="form-group";
     var para = document.createElement("label");
-    para.htmlFor="SelectTenant";
-    para.className="control-label";
+    para.htmlFor = "SelectTenant";
+    para.className = "control-label col-lg-2";
     var text = document.createTextNode("Select your tenant Id  ");
     myDiv.appendChild(form);
     form.appendChild(divGroup);
@@ -69,9 +69,7 @@ function selectTenant(tokenId) {
         option.text = tenantArr[i].id;
         selectList.appendChild(option);
     }
-    ;
-
-};
+}
 
 
 //Creation d'une session dans Webcom - retourne l'Uniq Id de l'objet

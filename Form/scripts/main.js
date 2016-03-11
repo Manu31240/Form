@@ -30,14 +30,10 @@ require.config({
 //});
 
 */
-requirejs([
+require([
 "text!SS-Form.html" // app/templates/module.html
-]);
-
-/*    , function(SS-Form, html) {
-    // vous retrouvez ici votre template
-    // que vous pouvez compiler par exemple avec underscore
-    //var compiledTemplate = _.template(html);
+], function(SS-Form, html) {
+    alert("toto");
 });
 
-*/
+
