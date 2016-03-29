@@ -1,3 +1,4 @@
+console.log("toto");
 require.config({
     baseUrl: 'scripts',
     paths: {
@@ -30,10 +31,11 @@ require.config({
 //});
 
 */
+
 require([
-"text!SS-Form.html" // app/templates/module.html
-], function(SS-Form, html) {
-    alert("toto");
+"text!SSForm.html" // app/templates/module.html
+], function(SSForm) {
+    loader.innerHTML= SSForm;
 });
 
 
