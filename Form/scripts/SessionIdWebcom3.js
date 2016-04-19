@@ -104,8 +104,8 @@ function sessionWebCom(tokenId, tenantId) {
     var recordId = newRecord.name();
     tenant.innerHTML+="Session ID Webcom"+recordId; // affichage de l'ID de session Webcom
     document.getElementById("SSForm").style.display = 'block'; // affichage de la liste des commandes
-    var choose = choixUser();
-    console.log('choose='+choose);
+    choixUser();
+
 
 }
 
@@ -116,12 +116,18 @@ function choixUser(){ // insere les choix case à cocher dans valeurs
     jQuery(document).ready(function() {
         $('input:checkbox').on('click', function () {
             valeurs.push($(this).val());
-            console.log(valeurs);
+
         });
+        $("#ValideChose").click(function () {
+            for (var i = 0; i < valeurs.length; i++){
+                loader.innerHTML+='</br>Key: ' + i + '; Valeur: ' + valeurs[i];
+            }
+        });
+
+
+
     });
-    for (var i in valeurs) {
-        tenant.innerHTML+='Key: ' + i + '; Valeur: ' + choose[i] + "\r\n";
-    }
+
 }
 
 
