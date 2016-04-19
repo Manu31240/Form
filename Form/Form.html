@@ -10,7 +10,7 @@
 
     <!--******************************Webcom ***************************-->
     <script type='text/javascript' src='https://webcom.orange.com/js/latest/webcom.js'></script>
-    <script language="JavaScript" src="SessionIdWebcom.js" type="text/javascript"></script>
+    <!--<script language="JavaScript" src="SessionIdWebcom.js" type="text/javascript"></script>-->
     <script language="JavaScript">
         // utilise le namespace form pour les tests
         var myRef = new Webcom('https://webcom.orange.com/base/form');
@@ -38,19 +38,21 @@
             xhr_object.open("POST", "https://identity2.fr1.cloudwatt.com/v2.0/tokens", false);
             xhr_object.setRequestHeader("Content-Type", "application/json");
             xhr_object.send(obj);
-            //bienvenue.innerHTML+=xhr_object.responseText;
+            bienvenue.innerHTML+=xhr_object.responseText;
 
 
             test = JSON.parse(xhr_object.responseText);
-            bienvenue.innerHTML+='Session Cloudwatt <br/>'+'Token Id = '+ test.access.token.id;
-            bienvenue.innerHTML+=displayForm("P",test.access.token.id);
-            bienvenue.innerHTML+='Session Cloudwatt <br/>'+'Token Id = '+ displayForm("P",test.access.token.id);
+            tenant.innerHTML+='Session Cloudwatt <br/>'+'Token Id = '+ test.access.token.id;
+            //tenant.innerHTML+=displayForm("P",test.access.token.id);
+            //tenant.innerHTML+='Session Cloudwatt <br/>'+'Token Id = '+ displayForm("P",test.access.token.id);
             xhr_test.open("GET", "https://identity2.fr1.cloudwatt.com/v2.0/tenants?", false);
             xhr_test.setRequestHeader("X-Auth-Token", test.access.token.id);
             xhr_test.send();
 
+            tenant.innerHTML+=xhr_test.responseText;
             var retenant = null;
-             retenant=JSON.parse(xhr_test.responseText);
+            retenant=JSON.parse(xhr_test.responseText);
+
             tenantId.innerHTML += "Tenant Id = "+ retenant.tenants[0].id;
             tenantName.innerHTML += "name = "+ retenant.tenants[0].name;
             tenantDescription.innerHTML += "description = "+ retenant.tenants[0].description;
@@ -72,13 +74,13 @@
                 webcomtenantId.innerHTML += 'webcom TenantId= '+retour.Session[recordId].tenantId;
                 webcomtokenId.innerHTML += 'webcom TokenId= '+retour.Session[recordId].tokenId;
             });
-            //tenantDescription.innerHTML+=xhr_object.responseText;
- /*           if (validateEmail(formulaire.elements[0].value)) {
+            tenantDescription.innerHTML+=xhr_object.responseText;
+            if (validateEmail(formulaire.elements[0].value)) {
 
 
                 myRef.authWithPassword({
-                    email: formulaire.elements[0].value,
-                    password: formulaire.elements[1].value
+                    email: "emmanuel.gavalda@orange.com",
+                    password: "Candidat"
                 }, function (error, auth) {
                     if (error) {
                         console.log("Login Failed", error);
@@ -91,7 +93,7 @@
                 });
             } else {
                 bienvenue.innerHTML += "mail Failed";
-            }*/
+            }
         };
 
     </script>
@@ -118,13 +120,13 @@
 </form>
 </br></br>
 <span> </span>
-<div id="bienvenue"></div></br>
-<div id="tenant">
+<div id="bienvenue" style="color: blue"></div></br>
+<div id="tenant" style="color: green">
     <span id="tenantId"></span></br>
     <span id="tenantName"></span></br>
     <span id="tenantDescription"></span></br>
 </div></br>
-<div id="webcom">
+<div id="webcom" style="color: red">
     <span id="webcomtenantId"></span></br>
     <span id="webcomtokenId"></span></br
 </div>
