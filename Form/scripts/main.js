@@ -1,4 +1,4 @@
-console.log("toto");
+//console.log("toto");
 require.config({
     baseUrl: 'scripts',
     paths: {
@@ -35,6 +35,7 @@ require.config({
 require([
 "text!SSForm.html" // app/templates/module.html
 ], function(SSForm) {
+
     loader.innerHTML= SSForm;
 });
 
