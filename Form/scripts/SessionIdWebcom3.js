@@ -1,5 +1,7 @@
+
 var myRef = new Webcom('https://webcom.orange.com/base/form'); //creation d'un objet Webcom
 //var actionId;
+
 
 /**
  * Created by root on 2/16/16.
@@ -88,13 +90,19 @@ function selectTenant(tokenId) {
     selectmenu.onchange=function(){ //run some code when "onchange" event fires
         var chosenoption=this.options[this.selectedIndex] //this refers to "selectmenu"
         if (chosenoption.value!="0"){
+
 //           sessionWebCom(tokenId, chosenoption.value); //Enregistrement sur Webcom du choix user
             var actionId = getActionId(tokenId, chosenoption.value);
             displayCommandForm(actionId);
+
+            sessionWebCom(tokenId, chosenoption.value); //Enregistrement sur Webcom du choix user
+
+
         }
     }
 
 }
+
 
 
 function getActionId(tokenId, tenantId) {
@@ -139,6 +147,28 @@ function getLSArguments() {
 
 
 /*function choixUser(){ // insere les choix case à cocher dans valeurs
+
+//Creation d'une session dans Webcom - retourne l'Uniq Id de l'objet
+function sessionWebCom(tokenId, tenantId) {
+    var myRef = new Webcom('https://webcom.orange.com/base/form'); //creation d'un objet Webcom
+    //ajout du choix user dans webcom
+    var record = myRef.child("Session");
+    var newRecord = record.push({
+        tokenId: tokenId,
+        tenantId: tenantId
+    });
+    var recordId = newRecord.name();
+    tenant.innerHTML+="Session ID Webcom"+recordId; // affichage de l'ID de session Webcom
+    document.getElementById("SSForm").style.display = 'block'; // affichage de la liste des commandes
+    choixUser();
+
+
+}
+
+
+
+function choixUser(){ // insere les choix case à cocher dans valeurs
+
     var valeurs = [];
     jQuery(document).ready(function() {
         $('input:checkbox').on('click', function () {
@@ -155,9 +185,15 @@ function getLSArguments() {
 
 
     });
+
     newRecord.update({ls: valeurs});
 }
 */
+
+
+}
+
+
 
 
 
