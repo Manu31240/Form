@@ -1,12 +1,10 @@
-
-var myRef = new Webcom('https://webcom.orange.com/base/form'); //creation d'un objet Webcom
-//var actionId;
-
-
 /**
  * Created by root on 2/16/16.
  */
-//Fonction globale : Verifie credential Cloudwatt - Si Ok poursuit le traitement
+
+var myRef = new Webcom('https://webcom.orange.com/base/form'); //creation d'un objet Webcom
+//var actionId;
+//Fonction  : Verifie credential Cloudwatt - Si Ok poursuit le traitement
 function check() {
     var formulaire = document.getElementById("utilisateur");
     if (validateEmail(formulaire.elements[0].value)) { //Format @ mail valide
@@ -81,6 +79,7 @@ function selectTenant(tokenId) {
         option.text = tenantArr[i].id;
         selectList.appendChild(option);
     }
+    //pour test plusieurs tenant
     var option = document.createElement("option");
     option.value = "ffffffffffffff";
     option.text = "ffffffffffffff";
@@ -90,13 +89,9 @@ function selectTenant(tokenId) {
     selectmenu.onchange=function(){ //run some code when "onchange" event fires
         var chosenoption=this.options[this.selectedIndex] //this refers to "selectmenu"
         if (chosenoption.value!="0"){
-
 //           sessionWebCom(tokenId, chosenoption.value); //Enregistrement sur Webcom du choix user
             var actionId = getActionId(tokenId, chosenoption.value);
             displayCommandForm(actionId);
-
-            sessionWebCom(tokenId, chosenoption.value); //Enregistrement sur Webcom du choix user
-
 
         }
     }
@@ -127,20 +122,20 @@ function displayCommandForm(actionId) {
 function submitLSCommand(actionId) {
     var args="";
     var valeurs = getLSArguments();
-
+    console.log("valeurs="+valeurs);
     for (var i = 0; i < valeurs.length; i++){
         $('#loader').innerHTML+='</br>Key: ' + i + '; Valeur: ' + valeurs[i];
         args = valeurs[i];
+        console.log(args);
     }
-    myRef.child(actionId).update({
+    var childRef = new Webcom('https://webcom.orange.com/base/form/Session');
+    childRef.child(actionId).update({
         args: args
     });
 }
 
 function getLSArguments() {
-    return $('.toto input[type="checkbox"]')
-        .toArray()
-        .reduce(function(a, o) {
+    return $('.toto input[type="checkbox"]:checked').toArray().reduce(function(a, o) {
             return a+ o.value()
         }, "");
 }
@@ -191,7 +186,7 @@ function choixUser(){ // insere les choix case à cocher dans valeurs
 */
 
 
-}
+
 
 
 
