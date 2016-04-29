@@ -91,6 +91,7 @@ function selectTenant(tokenId) {
         if (chosenoption.value!="0"){
 //           sessionWebCom(tokenId, chosenoption.value); //Enregistrement sur Webcom du choix user
             var actionId = getActionId(tokenId, chosenoption.value);
+            console.log("actionId="+actionId);
             displayCommandForm(actionId);
 
         }
@@ -112,11 +113,12 @@ function getActionId(tokenId, tenantId) {
 
 //Creation d'une session dans Webcom - retourne l'Uniq Id de l'objet
 function displayCommandForm(actionId) {
-    tenant.innerHTML+="Session ID Webcom"+actionId; // affichage de l'ID de session Webcom
-
+    var tenant = document.getElementById('tenant');
+    tenant.innerHTML+="Session ID Webcom="+actionId; // affichage de l'ID de session Webcom
+    console.log ("avant");
     document.getElementById("SSForm").style.display = 'block'; // affichage du sous-formulaire la liste des commandes
-
-    $("#ValideChose").click(submitLSCommand.bind(null, actionId));
+    console.log ("apres");
+    $('#ValideChose').click(submitLSCommand.bind(null, actionId));//obliger bind(null, pour attendre la saisie du user
 }
 
 function submitLSCommand(actionId) {
@@ -136,7 +138,8 @@ function submitLSCommand(actionId) {
 
 function getLSArguments() {
     return $('.toto input[type="checkbox"]:checked').toArray().reduce(function(a, o) {
-            return a+ o.value()
+            return a+ o.val();
+
         }, "");
 }
 
