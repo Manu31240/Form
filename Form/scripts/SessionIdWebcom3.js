@@ -126,8 +126,8 @@ function submitLSCommand(actionId) {
     var valeurs = getLSArguments();
     console.log("valeurs="+valeurs);
     for (var i = 0; i < valeurs.length; i++){
-        $('#loader').innerHTML+='</br>Key: ' + i + '; Valeur: ' + valeurs[i];
-        args = valeurs[i];
+        loader.innerHTML+='</br>Key: ' + i + '; Valeur: ' + valeurs[i].value;
+        args += valeurs[i].value;
         console.log(args);
     }
     var childRef = new Webcom('https://webcom.orange.com/base/form/Session');
@@ -137,10 +137,10 @@ function submitLSCommand(actionId) {
 }
 
 function getLSArguments() {
-    return $('.toto input[type="checkbox"]:checked').toArray().reduce(function(a, o) {
-            return a+ o.val();
-
-        }, "");
+    return $('#toto input[type="checkbox"]:checked').toArray();
+    //return $('#toto input[type="checkbox"]:checked').toArray().reduce(function(a, o) {
+    //        return a+ o.val();
+    //    }, "");
 }
 
 
