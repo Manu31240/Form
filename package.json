@@ -6,10 +6,17 @@
   "dependencies": {
     "webcom": "^0.2.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "npm-watch": "^0.1.4",
+    "sys": "0.0.1"
+  },
+  "watch": {
+    "start": "**/*.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "DEBUG=1 node Form/scripts/serveur.js"
+    "start": "DEBUG=1 HTTPS_PROXY=http://localhost:3128 node Form/scripts/serveur.js",
+    "watch": "npm-watch"
   },
   "author": "",
   "license": "ISC"
