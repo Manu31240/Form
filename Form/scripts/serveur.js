@@ -29,31 +29,33 @@ var child;
 
 var myServer = new Webcom("https://webcom.orange.com/base/form");
 
-    myServer.on("value", function (snap) {
-    var toto = "tu m'ennerves !!";
-    var record = myServer.child("Session");
-     console.log(toto);
-        console.log(record.name());
-    var JsonContent=snap.val();
+myServer.on("child_added", function (snap) {
+    var JsonContent = snap.val();
+    var record;
+    Object.keys(JsonContent).forEach(function(key) {
+       record=JsonContent[key];
 
-        console.log(JsonContent.Session.KJGGof7XBioxaxBQIc0.args);
+    });
+    console.log(record);
+    var lineup = "ls -"+record.args;
+    console.log(lineup);
+    child = exec(lineup, function (error, stdout, stderr) {
 
+        console.log('stdout: ' + stdout);
+        /*myServer.update({stdout: stdout});*/
 
+        console.log('stderr: ' + stderr);
 
+        if (error !== null) {
+
+            console.log('exec error: ' + error);
+
+        }
+
+    });
 });
-child = exec("ls -l", function (error, stdout, stderr) {
 
-    sys.print('stdout: ' + stdout);
 
-    sys.print('stderr: ' + stderr);
-
-    if (error !== null) {
-
-        console.log('exec error: ' + error);
-
-    }
-
-});
 /*myServer.set({Session: 'bar'});*/
 
 /* Read data
