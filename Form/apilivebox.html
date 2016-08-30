@@ -5,7 +5,7 @@
     <title>apiLivebox</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-style-type" content="text/css">
-    <link rel="stylesheet" href="layout.css" type="text/css" />
+
 
 
 
@@ -18,9 +18,10 @@
 
             //Construction du body de la requete
             xhr_object = new XMLHttpRequest();
-            xhr_object.open("POST", "http://192.168.1.1/sysbus/NMC:getWANStatus", false);
+            xhr_object.open("POST", "http://192.168.1.1/sysbus/NMC:getWANStatus", true);
             xhr_object.setRequestHeader("Content-Type", "application/json");
-            //xhr_object.send(obj);
+            xhr_object.send(obj);
+            console.log("test:", xhr_object.responseText);
             bienvenue.innerHTML += xhr_object.responseText;
         }
     </script>
@@ -59,26 +60,10 @@
             <span id="webcomtokenId"></span></br
         </div>
             <div>
-                <pre>$(free -m)</pre>
+
             </div>
 
             <!--******************************Webcom***************************-->
-
-
-
-
-
-            <script>
-
-                displayForm("P","This is a paragraph.");
-                displayForm("P",test.access.token.id);
-
-    </script>
-
-
-
-    </body>
-</html>
 
 </body>
 </html>
