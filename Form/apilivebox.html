@@ -14,12 +14,14 @@
 
         function check() {
             var xhr_object = null;
-            var obj = '{"parameters": {}}';
+            var obj = '{"parameters":{}}';
 
             //Construction du body de la requete
             xhr_object = new XMLHttpRequest();
             xhr_object.open("POST", "http://192.168.1.1/sysbus/NMC:getWANStatus", true);
             xhr_object.setRequestHeader("Content-Type", "application/json");
+            xhr_object.setRequestHeader("Access-Control-Allow-Origin", "*");
+
             xhr_object.send(obj);
             console.log("test:", xhr_object.responseText);
             bienvenue.innerHTML += xhr_object.responseText;
