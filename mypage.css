@@ -1,0 +1,18 @@
+.Rectangle1 {
+  width: 1024px;
+  height: 80px;
+  background-color: #000000;
+}
+.Rectangle2 {
+  width: 1024px;
+  height: 217px;
+  background-color: #4bb4e6;
+}
+.Erreurgenerique-1024px {
+  width: 1024px;
+  height: 768px;
+  background-color: #ffffff;
+}
+.img {
+  float:right;
+}
